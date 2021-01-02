@@ -3,9 +3,9 @@ from PIL import Image
 
 base_folder = Path(__file__).parent.absolute()
 root_folder = Path(Path.joinpath(base_folder,"test_data"))
-pc_folder = Path(Path.joinpath(base_folder,"test_data/PC"))
-phone_folder = Path(Path.joinpath(base_folder,"test_data/Phone"))
-other_folder = Path(Path.joinpath(base_folder,"test_data/Other"))
+pc_folder = Path(Path.joinpath(root_folder,"PC"))
+phone_folder = Path(Path.joinpath(root_folder,"Phone"))
+other_folder = Path(Path.joinpath(root_folder,"Other"))
 
 if not root_folder.exists():
     root_folder.mkdir()
