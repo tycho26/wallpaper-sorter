@@ -8,12 +8,16 @@ phone_folder = Path(Path.joinpath(root_folder,"Phone"))
 other_folder = Path(Path.joinpath(root_folder,"Other"))
 
 if not root_folder.exists():
+    print(root_folder,"Does not exist. Creating now...")
     root_folder.mkdir()
 if not pc_folder.exists():
+    print(pc_folder,"Does not exist. Creating now...")
     pc_folder.mkdir()
 if not phone_folder.exists():
+    print(phone_folder,"Does not exist. Creating now...")
     phone_folder.mkdir()
 if not other_folder.exists():
+    print(other_folder,"Does not exist. Creating now...")
     other_folder.mkdir()
 
 wallpapers = list(root_folder.glob("*.jpg"))
