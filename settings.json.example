@@ -1,0 +1,8 @@
+{
+    "folders":{
+        "root":"path/to/root",
+        "pc":"path/to/pc",
+        "phone":"path/to/phone",
+        "other":"path/to/other"
+    }
+}
