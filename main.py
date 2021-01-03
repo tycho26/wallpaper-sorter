@@ -1,13 +1,17 @@
-from pathlib import Path
-from PIL import Image
+import json
 import shutil
+from PIL import Image
+from pathlib import Path
 from datetime import datetime
 
+settings_file = open("settings.json","r").read()
+settings = json.loads(settings_file)
+
 base_folder = Path(__file__).parent.absolute()
-root_folder = Path(Path.joinpath(base_folder,"test_data"))
-pc_folder = Path(Path.joinpath(root_folder,"PC"))
-phone_folder = Path(Path.joinpath(root_folder,"Phone"))
-other_folder = Path(Path.joinpath(root_folder,"Other"))
+root_folder = Path(Path.joinpath(base_folder,settings['folders']['root']))
+pc_folder = Path(Path.joinpath(root_folder,settings['folders']['pc']))
+phone_folder = Path(Path.joinpath(root_folder,settings['folders']['phone']))
+other_folder = Path(Path.joinpath(root_folder,settings['folders']['other']))
 
 if not root_folder.exists():
     print("[",datetime.now(),"]",root_folder,"does not exist. Creating now...")
