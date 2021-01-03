@@ -36,13 +36,13 @@ for wallpaper in wallpapers:
     img = Image.open(wallpaper)
     if img.size[0] < img.size[1]:
         print("[",datetime.now(),"]","Moving",wallpaper,"to Phone")
-        shutil.move(wallpaper,phone_folder)
+        shutil.move(wallpaper,str(phone_folder))
     elif img.size[0] > img.size[1]:
         print("[",datetime.now(),"]","Moving",wallpaper,"to PC")
-        shutil.move(wallpaper,pc_folder)
+        shutil.move(wallpaper,str(pc_folder))
     else:
         print("[",datetime.now(),"]","Moving",wallpaper,"to Other")
-        shutil.move(wallpaper,other_folder)
+        shutil.move(wallpaper,str(other_folder))
 
 end_time = datetime.timestamp(datetime.now())
 print("[",datetime.now(),"]","Done in",round(end_time - start_time,2),"seconds.")
