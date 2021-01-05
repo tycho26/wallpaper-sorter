@@ -33,6 +33,7 @@ wallpapers.extend(root_folder.glob("*.jpeg"))
 wallpapers.extend(root_folder.glob("*.png"))
 
 for wallpaper in wallpapers:
+    wallpaper = str(wallpaper)
     img = Image.open(wallpaper)
     if img.size[0] < img.size[1]:
         print("[",datetime.now(),"]","Moving",wallpaper,"to Phone")
