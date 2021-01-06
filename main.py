@@ -4,10 +4,11 @@ from PIL import Image
 from pathlib import Path
 from datetime import datetime
 
-settings_file = open("settings.json","r").read()
+base_folder = Path(__file__).parent.absolute()
+
+settings_file = open(Path.joinpath(base_folder,"settings.json"),"r").read()
 settings = json.loads(settings_file)
 
-base_folder = Path(__file__).parent.absolute()
 root_folder = Path(Path.joinpath(base_folder,settings['folders']['root']))
 pc_folder = Path(Path.joinpath(root_folder,settings['folders']['pc']))
 phone_folder = Path(Path.joinpath(root_folder,settings['folders']['phone']))
