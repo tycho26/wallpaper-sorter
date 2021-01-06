@@ -32,18 +32,24 @@ wallpapers = list(root_folder.glob("*.jpg"))
 wallpapers.extend(root_folder.glob("*.jpeg"))
 wallpapers.extend(root_folder.glob("*.png"))
 
+def moveFile(src,dest):
+    src = str(src)
+    dest = str(dest)
+    print("[",datetime.now(),"]","Moving",src,"to",dest.split("/")[-1])
+    try:
+        shutil.move(wallpaper,dest)
+    except shutil.Error as err:
+        print("[",datetime.now(),"]","ERROR:",str(err)+".", "Skipping...")
+
 for wallpaper in wallpapers:
-    wallpaper = str(wallpaper)
     img = Image.open(wallpaper)
     if img.size[0] < img.size[1]:
-        print("[",datetime.now(),"]","Moving",wallpaper,"to Phone")
-        shutil.move(wallpaper,str(phone_folder))
+        moveFile(wallpaper,phone_folder)
     elif img.size[0] > img.size[1]:
-        print("[",datetime.now(),"]","Moving",wallpaper,"to PC")
-        shutil.move(wallpaper,str(pc_folder))
+        moveFile(wallpaper,pc_folder)
     else:
-        print("[",datetime.now(),"]","Moving",wallpaper,"to Other")
-        shutil.move(wallpaper,str(other_folder))
+        moveFile(wallpaper,other_folder)
+        
 
 end_time = datetime.timestamp(datetime.now())
 print("[",datetime.now(),"]","Done in",round(end_time - start_time,2),"seconds.")
