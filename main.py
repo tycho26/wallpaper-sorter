@@ -37,7 +37,7 @@ def moveFile(src,dest):
     dest = str(dest)
     print("[",datetime.now(),"]","Moving",src,"to",dest.split("/")[-1])
     try:
-        shutil.move(wallpaper,dest)
+        shutil.move(src,dest)
     except shutil.Error as err:
         print("[",datetime.now(),"]","ERROR:",str(err)+".", "Skipping...")
 
