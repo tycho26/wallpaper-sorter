@@ -31,6 +31,7 @@ start_time = datetime.timestamp(datetime.now())
 wallpapers = list(root_folder.glob("*.jpg"))
 wallpapers.extend(root_folder.glob("*.jpeg"))
 wallpapers.extend(root_folder.glob("*.png"))
+wallpapers.extend(root_folder.glob("*.webp"))
 
 for wallpaper in wallpapers:
     wallpaper = str(wallpaper)
